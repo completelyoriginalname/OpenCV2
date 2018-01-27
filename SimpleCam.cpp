@@ -4,8 +4,29 @@
 #include <stdio.h>
 #include <cmath>
 #include "Header1.h"
+
 using namespace std;
 using namespace cv;
+
+
+int Upload() 
+{
+
+	Mat src1;
+	//Read image ( same size, same type )
+	src1 = imread("../CamTest/download.bmp", 0);
+	if (!src1.data)
+	{
+		printf(" Error loading image \n");
+		return -1;
+	}
+
+	//Create Windows
+	namedWindow("Gell", CV_WINDOW_AUTOSIZE);
+	imshow("Gell", src1);
+	waitKey(0);
+	return 0;
+}
 
 int main()
 {
@@ -15,18 +36,15 @@ int main()
 	cin >> entry;
 	if (entry == 1)
 	{
-
-		
-		
 		Mat src1;
 		//Read image ( same size, same type )
 		src1 = imread("../CamTest/download.bmp", 0);
 		if (!src1.data)
 		{
-			printf(" Error loading image \n"); 
+			printf(" Error loading image \n");
 			return -1;
 		}
-		
+
 		//Create Windows
 		namedWindow("Gell", CV_WINDOW_AUTOSIZE);
 		imshow("Gell", src1);
