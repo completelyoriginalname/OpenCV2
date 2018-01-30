@@ -8,26 +8,6 @@
 using namespace std;
 using namespace cv;
 
-
-int Upload() 
-{
-
-	Mat src1;
-	//Read image ( same size, same type )
-	src1 = imread("../CamTest/download.bmp", 0);
-	if (!src1.data)
-	{
-		printf(" Error loading image \n");
-		return -1;
-	}
-
-	//Create Windows
-	namedWindow("Gell", CV_WINDOW_AUTOSIZE);
-	imshow("Gell", src1);
-	waitKey(0);
-	return 0;
-}
-
 int main()
 {
 	int entry;
@@ -38,10 +18,13 @@ int main()
 	{
 		Mat src1;
 		//Read image ( same size, same type )
-		src1 = imread("../CamTest/download.bmp", 0);
+		String imagename;
+		cout << "Please enter the name of the image.";
+		cin >> imagename;
+		src1 = imread("../CamTest/Images/" + imagename, 0);
 		if (!src1.data)
 		{
-			printf(" Error loading image \n");
+			cout << " Error loading image \n";
 			return -1;
 		}
 
